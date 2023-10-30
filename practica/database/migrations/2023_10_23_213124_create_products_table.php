@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->enum('unit_measurement',['unit','other']);
             $table->tinyInteger('available');
-            $table->decimal('percentage_vat',$precision=4,$scale=2);
+            $table->decimal('percentage_vat',$precision=20,$scale=2);
             $table->decimal('unit_price',$precision=20,$scale=2);
             $table->unsignedSmallInteger('stock');
             $table->timestamps();
