@@ -34,4 +34,6 @@ Route::post('save/saveCandidate',[CandidatesController::class,'store'])->name('s
 Route::get('view/rol',[RoleController::class,'index'])->name('index_roles');
 Route::get('create/createRole',[RoleController::class,'create'])->name('create_role');
 Route::post('save/saveRole',[RoleController::class,'store'])->name('save_role');
+Route::get('/rol/{role}',[RoleController::class,'edit'])->name('edit_role');
+Route::post('save/{id}',[RoleController::class,'update'])->name('update_role');
 

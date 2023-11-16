@@ -51,15 +51,23 @@ class RoleController extends Controller
      */
     public function edit(role $role)
     {
-        //
+        return view('/role/updateRole',[
+            'role' => $role
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, role $role)
+    public function update(Request $request,$role)
     {
-        //
+        $new1=role::findOrFail($role);
+        $new1->role_name=$request->role_name;
+        $new1->description=$request->description;
+
+        $new1->save();
+
+        return redirect()->route('index_roles');
     }
 
     /**

@@ -43,14 +43,16 @@ class userscontroller extends Controller
     }
 
     public function edit(users $users){
+        $roles=role::all();
         return view('/users/updateUsers',[
-            'users' => $users
+            'users' => $users,
+            'roles'=>$roles
         ]);
     }
 
     public function update(Request $request,$users)
     {
-       $new1=users::findorfail($users);
+       $new1=users::findOrFail($users);
        $new1->doc_type=$request->doc_type;
        $new1->doc_num=$request->doc_num;
        $new1->name=$request->name;

@@ -34,6 +34,7 @@
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s;
+            
         }
     </style>
 </head>
@@ -54,6 +55,9 @@
             <td>{{$user->doc_num}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->role->role_name}}</td>
+            <td> <form action="{{route('edit_users',['users'=>$user->id])}}" method="get">
+                <button class="updateBtn">Actualizar</button>
+            </form></td>
         </tr>
         @empty
         <tr>
@@ -62,6 +66,8 @@
         @endforelse
     </table>
     <a href="{{route('create_users')}}">Crear un usuario</a>
+
+   
     
 </body>
 </html>

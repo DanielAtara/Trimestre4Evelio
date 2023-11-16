@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Roles creados</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         table {
@@ -20,8 +24,8 @@
         }
 
         th, td {
-            border: 1px solid #ccc;
-            padding: 12px;
+            border: 1px solid #ddd;
+            padding: 8px;
             text-align: left;
         }
 
@@ -34,17 +38,24 @@
         }
 
         a {
-            display: inline-block;
+            display: block;
             padding: 10px 20px;
             background-color: #007bff;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            width: fit-content;
+            margin: 20px auto;
+            text-align: center;
         }
 
-        a:hover {
+        .updateBtn {
             background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -54,23 +65,24 @@
         <tr>
             <th>Id</th>
             <th>Nombre del rol</th>
+            <th>Acción</th>
         </tr>
         @forelse($role as $role)
         <tr>
             <td>{{$role->id}}</td>
             <td>{{$role->role_name}}</td>
+            <td>
+                <form action="{{route('edit_role',['role'=>$role->id])}}" method="get">
+                    <button class="updateBtn">Actualizar</button>
+                </form>
+            </td>
         </tr>
         @empty
-            <td colspan="2">No hay roles</td>
+        <tr>
+            <td colspan="3">No hay roles</td>
+        </tr>
         @endforelse
     </table>
     <a href="{{route('create_role')}}">Crear un nuevo rol</a>
 </body>
 </html>
-
-
-
-
-
-
-
