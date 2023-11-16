@@ -34,8 +34,9 @@
     </style>
 </head>
 <body>
-    <a href="{{route('create_role')}}">crear un rol</a>
-    <a href="{{route('create_users')}}">crear un usuario</a>
-    <a href="{{route('create_candidate')}}">crear un candidato</a>
+    <a href="{{route('index_usuarios')}}">usuarios</a>
+    <a href="{{route('index_candidates')}}">candidatos</a>
+    <a href="{{route('index_roles')}}">roles</a>
+
 </body>
 </html>

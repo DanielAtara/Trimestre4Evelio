@@ -15,7 +15,10 @@ class CandidatesController extends Controller
     public function index()
     {
         $usuarios=users::all();
-        return view('/candidates/candidates');
+        $candidates=Candidates::all();
+        return view('/candidates/indexCandidates',[
+            'candidates' => $candidates
+        ]);
     }
 
     /**
@@ -23,7 +26,10 @@ class CandidatesController extends Controller
      */
     public function create()
     {
-        return view('/candidates/candidates');
+        $intento=users::all();
+        return view('/candidates/candidates',[
+            'users' => $intento
+        ]);
     }
 
     /**

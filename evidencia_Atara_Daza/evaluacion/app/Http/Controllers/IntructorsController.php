@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\role;
+use App\Models\intructors;
 use Illuminate\Http\Request;
 
-class RoleController extends Controller
+class IntructorsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $role=role::all();
-        return view('/role/indexRole',[
-            'role' => $role
-        ]);
+        //
     }
 
     /**
@@ -23,7 +20,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('/role/role');
+        //
     }
 
     /**
@@ -31,17 +28,13 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $new1=new role();
-        $new1->role_name=$request->role_name;
-        $new1->description=$request->description;
-        $new1->save();
-        return redirect()->route('create_role');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(role $role)
+    public function show(intructors $intructors)
     {
         //
     }
@@ -49,7 +42,7 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(role $role)
+    public function edit(intructors $intructors)
     {
         //
     }
@@ -57,7 +50,7 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, role $role)
+    public function update(Request $request, intructors $intructors)
     {
         //
     }
@@ -65,7 +58,7 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(role $role)
+    public function destroy(intructors $intructors)
     {
         //
     }

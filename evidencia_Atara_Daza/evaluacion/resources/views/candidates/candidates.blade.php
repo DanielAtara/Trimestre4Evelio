@@ -75,8 +75,14 @@
         <label for="points">Points:</label>
         <input type="number" name="points" required>
 
-        <label for="user_id">User ID:</label>
-        <input type="text" name="user_id" required>
+        <label for="">USUARIOS</label>
+        <select name="user_id" id="">
+            @forelse($users as $user)
+            <option value="{{$user->id}}">{{$user->name}}</option>
+            @empty
+            <option value="">no hay usuarios registrados</option>
+            @endforelse
+        </select>
 
         <button type="submit">Submit</button>
     </form>

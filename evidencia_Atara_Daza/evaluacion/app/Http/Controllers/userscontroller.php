@@ -11,8 +11,10 @@ use Illuminate\Http\Request;
 class userscontroller extends Controller
 {
     public function index(){
-        
-        return view('/users/users');
+        $usuarios=users::all();
+        return view('/users/indexUsers',[
+            'users' => $usuarios
+        ]);
     }
     public function create(){
         $intento=role::all();
@@ -39,4 +41,29 @@ class userscontroller extends Controller
         return redirect()->route('create_users');
 
     }
+
+    public function edit(users $users){
+        return view('/users/updateUsers',[
+            'users' => $users
+        ]);
+    }
+
+    public function update(Request $request,$users)
+    {
+       $new1=users::findorfail($users);
+       $new1->doc_type=$request->doc_type;
+       $new1->doc_num=$request->doc_num;
+       $new1->name=$request->name;
+       $new1->last_name=$request->last_name;
+       $new1->phone=$request->phone;
+       $new1->user_name=$request->user_name;
+       $new1->email=$request->email;
+       $new1->password=$request->password;
+       $new1->role_id=$request->role_id;
+
+       $new1->save();
+       
+       return redirect()->route('index_usuarios');
+    }
+
 }
